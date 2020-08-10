@@ -3,6 +3,7 @@
 #include <vector>
 #include <conio.h>
 #include <stdio.h>
+
 using namespace std;
 
 void Alert(int alert)
@@ -37,15 +38,15 @@ void Alert(int alert)
 	}
 }
 
-void ShowMap(int plane[10][10], int x, int y, int alert)
+void ShowMap(int plane[16][16], int x, int y, int alert, int x_max, int y_max)
 {
 	system("cls");  //This is windows only. This will be fixed later.
 	cout << "Map Location:\n";
 	cout << "X locaiton = " << x + 1<< endl;
 	cout << "Y location = " << y + 1<< endl;
-	for (int r = 0; r < 10; r++)
+	for (int r = 0; r < y_max; r++)
 	{
-		for (int c = 0; c < 10; c++)
+		for (int c = 0; c < x_max; c++)
 		{
 			cout << plane[c][r] << " ";
 		}
@@ -56,24 +57,17 @@ void ShowMap(int plane[10][10], int x, int y, int alert)
 
 int main()
 {
-	int plane[10][10] = {
-		{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
+	int plane[16][16] = {
+		{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
 	};
 	int x = 0; //x goes from 0 to 9 since arrays start at 0. it will make the code easier.
 	int y = 0; //y goes from 0 to 9 since arrays start at 0. it will make the code easier.
+	const int x_max = 16;
+	const int y_max = 16;
 	char input;
 	int alert;
 
-	ShowMap(plane, x, y, 1);
+	ShowMap(plane, x, y, 1, x_max, y_max);
 
 
 	while (true)
@@ -87,7 +81,7 @@ int main()
 		}
 		if (input == 'd')
 		{
-			if (x == 9)
+			if (x == x_max - 1)
 			{
 				alert = 2;
 			}
@@ -113,7 +107,7 @@ int main()
 		}
 		if (input == 's')
 		{
-			if (y == 9)
+			if (y == y_max - 1)
 			{
 				alert = 4;
 			}
@@ -138,7 +132,7 @@ int main()
 			}
 		}
 
-		ShowMap(plane, x, y, alert);
+		ShowMap(plane, x, y, alert, x_max, y_max);
 
 	}
 }
