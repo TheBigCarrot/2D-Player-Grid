@@ -14,23 +14,23 @@ void Alert(int alert)  //this is how the game will send a message to the player.
 		break;
 
 	case 1:
-		cout << "Press 'P' at any time to5 quit playing.\n";
+		cout << "Press 'P' at any time to quit playing.\n";
 		break;
 
 	case 2:
-		cout << "Unable to move to the right.\n";
-		break;
-
-	case 3:
-		cout << "Unable to move to the left.\n";
-		break;
-
-	case 4:
 		cout << "Unable to move down.\n";
 		break;
 
-	case 5:
+	case 3:
 		cout << "Unable to move up.\n";
+		break;
+
+	case 4:
+		cout << "Unable to move to the right.\n";
+		break;
+
+	case 5:
+		cout << "Unable to move to the left.\n";
 		break;
 
 	default:
